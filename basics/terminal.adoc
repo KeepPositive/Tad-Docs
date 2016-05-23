@@ -1,0 +1,47 @@
+= Traversing the Linux Terminal
+
+In this document, you will find several useful tips in how to use the Linux
+terminal swiftly using several basic skills.
+
+You will learn to:
+
+* Run commands
+* Travel around the terminal interface quickly and efficiently
+
+== Introduction
+
+If you are brand new to Linux, you should start here. One of the greatest
+features of the GNU/Linux ecosystem is it's ability to integrate tightly with
+terminal emulators. If you have ever used the command line (CLI) in Windows,
+it is similar in a few ways. But rather than being a purely administrative tool,
+anyone can use the Linux terminal to run any of the commands available to their
+user.
+
+In order to open your terminal, there are a few different methods. In the Tad
+OS graphical user interface (GUI), you can right click on your home screen, and
+select the 'URxvt' option. This will open a terminal emulator. In other
+operating systems, there is generally some menu where you will select an option
+named 'Terminal' or have a terminal logo.
+
+== Commands
+
+Now, what can you do with your newly opened terminal? You can run commands.
+Lots of them. Generally, if you hit ``Tab`` on your keyboard twice, it will
+prompt you to display all of your available options. This will show you the
+thousands programs available to you.
+
+== Shortcuts
+
+=== Tips
+
+If you are ever viewing a piece of documentation, you may see some shorthand
+for keyboard shortcuts.
+
+=== Useful Shortcuts
+Here is a quick list of some keyboard shortcuts available to you:
+
+* ``Control-A``     Jump to the beginning of the current line (``Home`` works too)
+* ``Control-B``     Move back one character
+* ``Control-C``     End a running program
+* ``Control-D``     Delete the current character
+* ``Control-E``

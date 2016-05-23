@@ -1,0 +1,30 @@
+= Tad Docs
+
+Welcome to the Tad Docs repository. Here, we welcome new Linux users with open
+arms. Each of these documents has a single goal: Teach users about everyday
+commands used in a GNU/Linux ecosystem.
+
+== Building
+
+These documents are written in the AsciiDoc format. They can be read in their
+initial plain text form, or built into a series of formats like HTML5 or PDF.
+To complete this task, I suggest using the Asciidoctor program. Asciidoctor is
+a Rubygem, and can be installed using the gem command. Once you have Ruby
+installed, Asciidoctor can be installed using the following command:
+
+```
+$ gem install asciidoctor asciidoctor-pdf
+```
+
+*Or* if you are into the bundler stuff, you can do this as well:
+
+```
+$ bundle install
+```
+
+Then, you can use the ``build_documents.sh`` script to generate the documents.
+Just pass it an argument for whatever filetype you could like to use.
+
+```
+$ bash build_documents.sh html
+```
