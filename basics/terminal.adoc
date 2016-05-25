@@ -13,15 +13,21 @@ You will learn to:
 If you are brand new to Linux, you should start here. One of the greatest
 features of the GNU/Linux ecosystem is it's ability to integrate tightly with
 terminal emulators. If you have ever used the command line (CLI) in Windows,
-it is similar in a few ways. But rather than being a purely administrative tool,
-anyone can use the Linux terminal to run any of the commands available to their
-user.
+it is similar in a few ways. But rather than being an administrative tool,
+anyone can use the Linux terminal to run many commands.
 
-In order to open your terminal, there are a few different methods. In the Tad
-OS graphical user interface (GUI), you can right click on your home screen, and
-select the 'URxvt' option. This will open a terminal emulator. In other
-operating systems, there is generally some menu where you will select an option
-named 'Terminal' or have a terminal logo.
+In order to open your terminal, there are a few different methods:
+
+* In the Tad OS graphical user interface (GUI), you can right click on your
+home screen, and select the 'URxvt' option.
+* In other operating systems, there is generally some menu where you will
+select an option named 'Terminal' or a terminal logo.
+
+NOTE: There are many "shells" available for UNIX-like operating systems. The
+shell is responsible for accepting input and controlling output, making the
+terminal interface possible. A large majority GNU/Linux operating systems
+utilize the Bash (Bourne Again Shell) as the standard terminal shell. Here on
+out, references to the shell refer to Bash.
 
 == Commands
 
@@ -32,16 +38,39 @@ thousands programs available to you.
 
 == Shortcuts
 
+When using the Linux terminal, there are several shortcuts available which can
+allow you to be more efficient. This section outlines some important keyboard
+shortcuts which can help you be a better Linux user.
+
 === Tips
 
 If you are ever viewing a piece of documentation, you may see some shorthand
-for keyboard shortcuts.
+for keyboard shortcuts. Here are a few of them described:
+
+* C (capital c) often stands for the ``Ctrl`` key
+* M (capital m) often stands for the ``Alt`` key (M is for
+link:https://en.wikipedia.org/wiki/Meta_key[Meta])
+* S (captial s) often stands for the ``Windows`` key (S is for
+link:https://en.wikipedia.org/wiki/Super_key_(keyboard_button)[Super])
 
 === Useful Shortcuts
+
 Here is a quick list of some keyboard shortcuts available to you:
 
-* ``Control-A``     Jump to the beginning of the current line (``Home`` works too)
-* ``Control-B``     Move back one character
-* ``Control-C``     End a running program
-* ``Control-D``     Delete the current character
-* ``Control-E``
+* ``C-a``   Jump to the beginning of the line (``Home`` works too)
+* ``C-b``   Move back one character (or left arrow key)
+* ``C-c``   End a running program
+* ``C-d``   Delete the current character
+* ``C-e``   Jump to the end of the line (``End`` works too)
+* ``C-f``   Move forward one character (or right arrow key)
+* ``C-l``   Clear screen
+* ``C-r``   Move up through command history (or up arrow key)
+* ``C-s``   Move down through command history, if available (or down arrow key)
+* ``C-z``   End the current process
+* ``M-b``   Move back one word
+* ``M-f``   Move forward one word
+* ``Tab``   Hit twice to list available commands
+
+NOTE: All of these keyboard shortcuts are documented in the bash manpage. You
+may view it by running the command ``$ man bash`` in a terminal. But we will
+discuss this later.

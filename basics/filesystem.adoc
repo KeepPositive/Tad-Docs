@@ -1,0 +1,44 @@
+= Traveling the Standard Directories
+
+In this document, we will discuss the standard directories used in many
+UNIX-like systems, and how to travel through them.
+
+NOTE: UNIX is the ancestor of GNU/Linux-based operating systems. Many of the
+names of these commands were cloned from UNIX. You can read more on the topic
+link:http://tldp.org/LDP/intro-linux/html/sect_01_01.html[here].
+
+== Changing Directories
+
+=== Working Directory
+
+A good place to start is with the ``pwd`` (*p*rint *w*orking *d*irectory)
+command. This command prints out what directory we are currently in. To see
+the name of the working directory, run the following command:
+
+```
+$ pwd
+```
+
+The directory printed out resembles a *path*. Each word/phrase between each '/'
+refers to the name of a folder (AKA a directory). When you run a user command,
+it often completes an operation within the working directory.
+
+=== Changing Directories
+
+But what if we want to change our directory? Enter the ``cd`` (*c*hange
+*d*irectory) command. Let's enter the following commands:
+
+```
+$ cd ..
+$ pwd
+```
+
+This set of commands changes our directory up one folder, and then prints out
+the new working directory. '..' represents the parent directory of the working
+directory.
+
+== Standard Directories
+
+A large majority of GNU/Linux-based systems conform to the FSH (File System
+Hierarchy). This is a document which defines the purpose of major directories
+beneath the root directory.

@@ -16,14 +16,14 @@ installed, Asciidoctor can be installed using the following command:
 $ gem install asciidoctor asciidoctor-pdf
 ```
 
-*Or* if you are into the bundler stuff, you can do this as well:
+Or, if you are into the bundler thing, you can do this as well:
 
 ```
 $ bundle install
 ```
 
 Then, you can use the ``build_documents.sh`` script to generate the documents.
-Just pass it an argument for whatever filetype you could like to use.
+Just pass it an argument for whatever filetype you wish to use.
 
 ```
 $ bash build_documents.sh html
