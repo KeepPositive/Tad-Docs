@@ -1,8 +1,8 @@
 = Tad Docs
 
 Welcome to the Tad Docs repository. Here, we welcome new Linux users with open
-arms. Each of these documents has a single goal: Teach users about everyday
-commands used in a GNU/Linux ecosystem.
+arms. Each document has a single goal: Teach users about everyday commands
+used in a GNU/Linux ecosystem.
 
 == Building
 
@@ -13,7 +13,8 @@ a Rubygem, and can be installed using the gem command. Once you have Ruby
 installed, Asciidoctor can be installed using the following command:
 
 ```
-$ gem install asciidoctor asciidoctor-pdf
+$ gem install asciidoctor
+$ gem install asciidoctor-pdf --pre
 ```
 
 Or, if you are into the bundler thing, you can do this as well:

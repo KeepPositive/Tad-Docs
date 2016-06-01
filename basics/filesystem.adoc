@@ -1,4 +1,4 @@
-= Traveling the Standard Directories
+= Traveling the Operating System
 
 In this document, we will discuss the standard directories used in many
 UNIX-like systems, and how to travel through them.
@@ -37,8 +37,36 @@ This set of commands changes our directory up one folder, and then prints out
 the new working directory. '..' represents the parent directory of the working
 directory.
 
+=== Listing Directories
+
+So, you know how to travel through directories. The next step would be to see
+what files are available. To do this, use the ``ls`` command. This will list
+all directories and files within the working directory. Although, there may be
+more files than shown here. If you want to see all files, run this command:
+
+```
+$ ls -a
+```
+
+Notice two things here:
+
+* All files starting with a period (.file) are considered hidden files.
+* The symbols '.' and '..' are listed first, and count as virtual directories,
+where '.' is a shorthand for the current directory, and '..' is shorthand for
+the parent directory.
+
+Another interesting feature in GNU/Linux is viewing file permissions. If you
+want to view permissions for directories and files, enter this command:
+
+```
+$ ls -h
+```
+
+NOTE: Remember than you can view these command options using ``ls --help``
+or ``man ls``.
+
 == Standard Directories
 
-A large majority of GNU/Linux-based systems conform to the FSH (File System
-Hierarchy). This is a document which defines the purpose of major directories
-beneath the root directory.
+A large majority of GNU/Linux-based systems conform to the FHS (Filesystem
+Hierarchy Standard). This is a document which defines the purpose and
+placement of major directories beneath the root directory.

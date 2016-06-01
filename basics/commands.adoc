@@ -1,0 +1,4 @@
+= Running Commands
+
+As stated previously, GNU/Linux relies heavily on the user of a terminal. To
+start off, let's begin with what a terminal is.
