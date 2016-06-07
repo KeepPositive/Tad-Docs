@@ -1,7 +1,11 @@
 #! /bin/bash
 
+## Start variables
 START_DIR=$(pwd)
 OUTPUT_TYPE=$1
+SRC_DIRECTORY="$START_DIR/Sources"
+
+## End variables
 
 ## Start functions
 help_message ()
@@ -12,51 +16,59 @@ help_message ()
     printf "'pdf'\tExport documents to pdf files in the pdf/ directory\n"
 }
 
-html_output ()
-{
-    # Output documents in the HTML5 format
-    output_dir="$START_DIR/html"
-
-    mkdir -v "$output_dir"
-
-    for adoc_file in "$START_DIR/"*.adoc
-    do
-        asciidoctor --destination-dir="$output_dir" "$adoc_file"
-    done
-
-    echo "HTML documents output to $output_dir"
-}
-
-pdf_output ()
-{
-    # Output documentation in the PDF format
-    output_dir="$START_DIR/pdf"
-    mkdir -v "$output_dir"
-
-    for adoc_file in "$START_DIR/"*.adoc
-    do
-        asciidoctor-pdf --destination-dir="$output_dir" "$adoc_file"
-    done
-
-    echo "PDF documents output to $output_dir"
-}
-## End functions
-
+## End Functions
 
 ## Start script
-echo "Let's make some documentation!"
+# Documents will be output in a folder named after the filetype
+output_format="${OUTPUT_TYPE,,}"
+output_directory="$START_DIR/$output_format"
 
-case $OUTPUT_TYPE in
-"html")
-    html_output ()
-;;
+# Set which command to execute for conversion based on file type
+if [ "$output_format" == "html" ]
+then
+    execute="asciidoctor"
+elif [ "$output_format" == "pdf" ]
+then
+    execute="asciidoctor-pdf"
+else
+    echo "Invalid format entered as argument"
+    help_message
+    exit 0
+fi
+echo "Outputing using $output_format"
 
-"pdf")
-    pdf_output ()
-;;
+# Make the file named after the file type argument
+echo "Making $output_directory"
+mkdir -p "$output_directory"
 
-*)
-    help_message ()
-;;
-esac
+# Create the 
+sed 's/adoc/html/' "$SRC_DIRECTORY/index.adoc" | $execute - -o "$output_directory/index.html"
+
+# For each directory in the Sources directory...
+for adoc_dir in $(find $SRC_DIRECTORY -type d -printf "%P\n")
+do
+    sub_output_directory="$output_directory/$adoc_dir"
+    # Make a copy of the source directory in the new directory
+    echo "Making $sub_output_directory"
+    mkdir -p "$sub_output_directory"
+    # For every Asciidoc file in the sub-directory...
+    for adoc_file in $(find "$SRC_DIRECTORY/$adoc_dir" -type f -name "*.adoc" -printf "%f\n")
+    do
+        file_name="${adoc_file##*/}"
+        file_title="${adoc_file%.adoc}"
+        old_file_path="$SRC_DIRECTORY/$adoc_dir/$adoc_file"
+        new_file_path="$output_directory/$adoc_dir/$file_title.html"
+
+        echo "Generating $new_file_path"
+        #echo "sed -i -e 's/adoc/html/' $old_file_path | $execute - -o $new_file_path" 
+        sed 's/adoc/html/' "$old_file_path" | $execute - -o "$new_file_path"
+    done
+done
+
+# Copy images and things to the output directory
+echo "Copying assets"
+cp -r "$SRC_DIRECTORY/images/" "$output_directory/"
+
+echo "Document generation completed"
+
 ## End script

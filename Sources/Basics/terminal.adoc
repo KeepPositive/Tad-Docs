@@ -38,11 +38,40 @@ thousands programs available to you.
 
 == Shortcuts
 
-When using the Linux terminal, there are several shortcuts available which can
-allow you to be more efficient. This section outlines some important keyboard
-shortcuts which can help you be a better Linux user.
+When using a terminal emulator, there are several shortcuts available which 
+can allow you to be more efficient. This section outlines some important 
+keyboard shortcuts which can help you become a better Linux user.
 
-=== Tips
+=== Path Shortcut
+
+While using the terminal, you are going to types *paths* often. A path is a
+string containing all directories and finally a file name or directory. Here
+are a few examples
+
+```
+/home/tedm1/Music
+/home/tedm1/Pictures/Black-Swan.jpg
+```
+
+Note that one of these paths leads to the directory named 'Music' and the 
+other leads to a jpeg file name 'Black-Swan.jpg'. Both of these are examples
+of paths.
+
+Never the less, both of these are paths found within the home directory of the
+user ``tedm1``. Luckily, rather than typing this part every time, we can use a
+shortcut. We can use the tilde character to refer to our home directory. Here 
+are the very same paths using this shortcut.
+
+```
+~/Music
+~/Pictures/Black-Swan.jpg
+```
+
+NOTE: This will only work when the user tedm1 is logged in and running the 
+prompt. If you were to run look at '~/Music' as the root user, it would 
+refer to the directory '/root/Music'
+
+=== Keyboard Shorthand
 
 If you are ever viewing a piece of documentation, you may see some shorthand
 for keyboard shortcuts. Here are a few of them described:
@@ -53,23 +82,53 @@ link:https://en.wikipedia.org/wiki/Meta_key[Meta])
 * S (captial s) often stands for the ``Windows`` key (S is for
 link:https://en.wikipedia.org/wiki/Super_key_(keyboard_button)[Super])
 
-=== Useful Shortcuts
+Here is a quick list of some keyboard shortcuts available to you while using
+bash:
 
-Here is a quick list of some keyboard shortcuts available to you:
+[%autowidth]
+|===
+|Keys |Description
 
-* ``C-a``   Jump to the beginning of the line (``Home`` works too)
-* ``C-b``   Move back one character (or left arrow key)
-* ``C-c``   End a running program
-* ``C-d``   Delete the current character
-* ``C-e``   Jump to the end of the line (``End`` works too)
-* ``C-f``   Move forward one character (or right arrow key)
-* ``C-l``   Clear screen
-* ``C-r``   Move up through command history (or up arrow key)
-* ``C-s``   Move down through command history, if available (or down arrow key)
-* ``C-z``   End the current process
-* ``M-b``   Move back one word
-* ``M-f``   Move forward one word
-* ``Tab``   Hit twice to list available commands
+|``C-a``
+|Jump to the beginning of the line (or Home key)
+
+|``C-b``   
+|Move back one character (or left arrow key)
+
+|``C-c``
+|End a running program
+
+|``C-d``   
+|Delete the current character
+
+|``C-e``
+|Jump to the end of the line (or End key)
+
+|``C-f``
+|Move forward one character (or right arrow key)
+
+|``C-l``
+|Clear the terminal of previous output
+
+|``C-r``
+|Move up through command history (or up arrow key)
+
+|``C-s``
+|Move down through command history, if available (or down arrow key)
+
+|``C-z``
+|End the current process running in the terminal
+
+|``M-b``
+|Move back one word
+
+|``M-f``
+|Move forward one word
+
+|``Tab-Tab``
+|Hit twice to list available commands
+
+|===
 
 NOTE: All of these keyboard shortcuts are documented in the bash manpage. You
 may view it by running the command ``$ man bash`` in a terminal. But we will

@@ -1,0 +1,155 @@
+:imagesdir: ../images
+:toc: left
+
+= Rebuilding the Linux Kernel
+
+Generally, if you are reading this document, you are viewing it from a 
+GNU/Linux-based operating system. This means you are using Linus Torvalds's 
+Linux kernel. In some cases you may wish to upgrade to a new version of the
+kernel for some reason. More times than not, this is to add specific drivers
+which are not already included. But worry not, we're here to help.
+
+== Getting Sources
+
+First, visit 
+link:www.kernel.org[] 
+and download the latest version of the Linux kernel as shown below.
+
+image::linux_page.gif[Linux Homepage Animation]
+
+Next, decompress the kernel using the ``tar`` command and enter the source 
+directory. Substitute [VERSION] with the version of the kernel you downloaded:
+
+```
+tar xvf linux-[VERSION].tar.xz
+cd linux-[VERSION]
+```
+
+Before doing anything else, it is important that the sources are _clean_. So
+run this command to ensure that is true:
+
+```
+make mrproper
+```
+
+== Configuration
+
+This is by far the most difficult part of building a the kernel. In order for 
+your kernel to function correctly, certain features must be enable and/or 
+disabled. If you do not compile these settings correctly, then your operating
+system may not even boot up. Luckily, that is what this guide is here for:
+reducing the number of accidents occuring during this process.
+
+=== Finding Drivers
+
+If you are using a desktop computer or a laptop, there are a few ways to find
+the drivers necessary to take full advantage of your hardware.
+
+Most distributions come with a program called ``lspci`` which lists out 
+information about the hardware connected to your motherboard via *PCI* slots.
+To get the most usable information, run this command:
+
+```
+lspci -v | less
+```
+
+Now scroll up and down to view all of the detected devices. I suggest 
+scrolling to the bottom of the document (Don't forget the shortcut for this, 
+which is capital 'g') and viewing the last view devices. Be sure to look out
+for your graphics card and ethernet controller. Now, using this information,
+you will need to do a little research on what drivers are neccessary to use
+your hardware via a Google Search.
+
+If you are using an embedded device like a Raspberry Pi or something of that
+nature, lspci will display an error. The Pi does not have an PCI slots. For
+this reason, it is important that you use the kernel specific towards your
+embedded device.
+
+=== A Base Config
+
+Next, we will begin actually configuring the kernel. Fairly often, the 
+configuration of your current kernel is still available. Here are a few
+places it may be:
+
+* A  backup of a previous working configuration may be available in your 
+/boot directory (This file is normally called 'config-[VERSION]' or something
+along those lines).
+* Your kernel may be set to offer a gzip config via the /proc/config.gz. 
+
+I suggest start with one of these two if available as a starting poing. Be 
+sure to move them to a .config file in the kernel source directory.
+
+If you do not have a previously working config file, then you will have to
+start from scratch. I suggest using the following commands to generate a base
+for you configuration.
+
+```
+make defconfig
+make localmodconfig
+```
+
+These commands will generate a .config file which is slightly designed towards
+your CPU architecture.
+
+=== Graphical Configuration
+
+Unfortunately, we still do not have all of the drivers for your hardware as 
+discussed early. In order to do this, enter the kernel's ncurses interface 
+using this command:
+
+```
+make nconfig
+```
+
+Here, you are able to choose which features you would like to add or remove
+via a graphical interface. 
+
+TIP: Features with a '*' indicate they are activated. Features without an 
+asterisk are deactivated. Features with an 'M' will be generated as modules.
+
+== Building
+
+Now that the kernel is completely configured, it is ready to be built. We do
+so using GNU Make through the following commands:
+
+TIP: To speed up these commands, you may want to use all of the cores 
+available to your computer.
+
+```
+make
+make modules_install
+```
+
+== Installation
+
+In order to install the new kernel, here are a few commands that need to be
+run. This will move the neccessary files into the /boot directory where they
+can be easily found by the bootloader.
+
+CAUTION: When choosing a version and revision, do not overwrite your current
+kernel. If for some reason the new kernel does not work and your old kernel 
+is gone, you will not be able to access your system without a hassle. 
+
+```
+cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-[VERSION]-[REVISION]
+cp -v System.map /boot/System.map-[VERSION]-[REVISION]
+cp -v .config /boot/config-[VERSION]-[REVISION]
+```
+
+=== Bootloader 
+
+Now your kernel is properly installed and ready for use. But, the bootloader
+needs to be able to access the new kernel. We need to update the bootloader's
+configuration file. For this example, we will be assuming your bootloader is 
+GNU Grub2.
+
+==== MBR
+
+Using the following command, your configuration will be updated. 
+
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+View the output of the command. If the kernel you just created is shown, you
+are free to reboot your computer and use your new kernel.

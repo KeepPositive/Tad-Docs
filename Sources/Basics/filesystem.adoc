@@ -7,9 +7,9 @@ NOTE: UNIX is the ancestor of GNU/Linux-based operating systems. Many of the
 names of these commands were cloned from UNIX. You can read more on the topic
 link:http://tldp.org/LDP/intro-linux/html/sect_01_01.html[here].
 
-== Changing Directories
+== Accessing Directories
 
-=== Working Directory
+=== The Working Directory
 
 A good place to start is with the ``pwd`` (*p*rint *w*orking *d*irectory)
 command. This command prints out what directory we are currently in. To see
@@ -37,7 +37,7 @@ This set of commands changes our directory up one folder, and then prints out
 the new working directory. '..' represents the parent directory of the working
 directory.
 
-=== Listing Directories
+=== Listing Contents
 
 So, you know how to travel through directories. The next step would be to see
 what files are available. To do this, use the ``ls`` command. This will list
@@ -62,8 +62,8 @@ want to view permissions for directories and files, enter this command:
 $ ls -h
 ```
 
-NOTE: Remember than you can view these command options using ``ls --help``
-or ``man ls``.
+NOTE: Remember than you can view available command options using 
+``ls --help`` or ``man ls``.
 
 == Standard Directories
 

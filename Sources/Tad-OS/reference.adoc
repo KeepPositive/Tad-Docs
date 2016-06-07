@@ -1,0 +1,3 @@
+= Tad OS Configuration Reference
+
+While Tad OS follows many standard when it comes to configuration, it may be worthwhile to a new user to learn what these standards are for future use. Here is a compilation of some notable configuration files throughout Tad OS.

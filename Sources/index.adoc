@@ -1,0 +1,61 @@
+:toc: left
+:imagesdir: ./images
+
+image::tad_logo_black.png[SWORD]
+
+== Introduction
+
+Welcome to Tad Docs. Here, we discuss topics which every user of GNU/Linux
+needs to understand in order to work quickly and effectively. While these 
+guides are part of the Tad OS project, they teach standards which can be used 
+on any modern GNU/Linux operating system.
+
+== Guides
+
+=== Basics
+
+Here, one learns about the basics of commands, terminal emulators, etc.
+
+link:Basics/terminal.adoc[1. Basic Terminal Usage]
+
+link:Basics/commands.adoc[2. Running Simple Commands]
+
+link:Basics/filesystem.adoc[3. Exploring the Filesystem]
+
+=== OS Configuration
+
+This section focuses on learning to adapt a GNU/Linux operating system by
+running more complicated commands.
+
+link:OSConf/linux_kernel.adoc[1. Rebuilding the Linux Kernel]
+
+
+== Tad OS
+
+This section is reserved for Tad OS specific documents. 
+
+=== GitHub
+
+Everything related to Tad OS is hosted in its own GitHub repo under the group
+*KeepPositive*. As always you can leave issues on GitHub, shoot me an email, 
+etc. Check all of the projects out at these links:
+
+link:https://github.com/KeepPositive/Tad-OS[Tad OS @ GitHub]
+link:https://github.com/KeepPositive/Tad-Docs[Tad Docs @ GitHub]
+link:https://github.com/KeepPositive/Tadman[Tadman @ GitHub]
+
+=== Tadman
+
+Tadman is the main package manager used in Tad OS.
+
+=== Specifics
+
+The specifics necessary to configure and modify Tad OS are discussed here.
+
+link:Tad-OS/reference.adoc[1. Configuration Reference]
+
+=== License
+
+Tad OS and all of it's associated project are released under the MIT Open 
+Source License. You can read more
+link:Tad-OS/license.adoc[here].
